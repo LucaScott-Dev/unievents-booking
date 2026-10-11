@@ -7,8 +7,8 @@
 Real wiring comes when S2 and S3 exist.  
 
 # Checkpoint
-10 tests pass on main.
-Your history shows a Red commit followed by a Green commit for the API.
+10 tests pass on main.   
+History shows a Red commit followed by a Green commit for the API.  
 Test names carry the portfolio IDs (T-S1-02, 04, 06, 07, 08).
 
 
