@@ -28,7 +28,7 @@ describe('BookingPolicy.book', () => {
       existingBookings,
     });
 
-    expect(result.ok).toBe(false);
+    expect(result.ok).toBe(true); // making test fail to see the error in the test
     expect(result.error).toBe('ALREADY_BOOKED');
     expect(result.booked).toBe(10); // unchanged
     expect(result.booking).toBeUndefined(); // no new booking created
