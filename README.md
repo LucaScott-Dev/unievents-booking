@@ -1,5 +1,31 @@
 
-# What to notice
+# UniEvents Booking Service
+
+Booking slice (FR-01, US-S1-01) of UniEvents, a web-based event management
+system for university students and societies.
+
+## Run locally
+
+```bash
+npm install
+npm start        # http://localhost:3000/health
+```
+
+## Run the tests
+
+```bash
+npm test
+```
+
+## Tests
+
+| ID | Level | Covers |
+|----|-------|--------|
+| T-S1-01, 03, 05 | Unit (BookingPolicy) | AC-S1-01.1, .2, .3 |
+| T-S1-02, 04, 06, 07, 08 | API (supertest) | AC-S1-01.1 to .4 |
+
+
+# Notice
 - Dependency injection: createApp receives its dependencies, so tests plug in doubles and production code can plug in the real S2 and S3 services later without changing the endpoint.  
 - Mock vs stub vs fake: the stub supplies data, the fake imitates login, and the mock lets us verify behaviour (send called exactly once).  
 - Order of checks: login (401), then role (403), then event (404), then business rules (409). That order is why the tests for T-S1-07 and T-S1-08 never touch event data.  
