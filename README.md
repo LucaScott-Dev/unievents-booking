@@ -1,7 +1,7 @@
 
 # UniEvents Booking Service
 
-![CI](https://github.com/essam-eliwa/unievents-booking/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/essam-eliwa/unievents-booking/actions/workflows/ci.yml/badge.svg)](https://github.com/essam-eliwa/unievents-booking/actions/workflows/ci.yml)
 
 Booking slice (FR-01, US-S1-01) of UniEvents, a web-based event management
 system for university students and societies.
