@@ -26,6 +26,17 @@ npm test
 | T-S1-01, 03, 05 | Unit (BookingPolicy) | AC-S1-01.1, .2, .3 |
 | T-S1-02, 04, 06, 07, 08 | API (supertest) | AC-S1-01.1 to .4 |
 
+# Turn on branch protection
+
+1- In your repository, go to Settings → Branches (or Settings → Rules → Rulesets).
+2- Add a rule for the branch name main.
+3- Tick:
+   - Require a pull request before merging. If you work alone, leave the number of required approvals at 0.
+   - Require status checks to pass before merging. Search for and add lint and test.
+
+4- Save.
+
+If you can’t find these options on a private repository: branch protection on private repos needs a paid plan (Pro or Team). You can Apply for the free GitHub Student Developer Pack, which includes Pro.
 
 # Notice
 - Dependency injection: createApp receives its dependencies, so tests plug in doubles and production code can plug in the real S2 and S3 services later without changing the endpoint.  
