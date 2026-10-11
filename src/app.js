@@ -1,10 +1,14 @@
 const express = require('express');
 
-const app = express();
-app.use(express.json());
+function createApp(deps = {}) {
+  const app = express();
+  app.use(express.json());
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
+  app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
+  });
 
-module.exports = app;
+  return app;
+}
+
+module.exports = { createApp };
