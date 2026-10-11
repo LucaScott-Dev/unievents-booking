@@ -1,4 +1,5 @@
 const express = require('express');
+const { createBookingsRouter } = require('./bookingsRouter');
 
 function createApp(deps = {}) {
   const app = express();
@@ -7,6 +8,8 @@ function createApp(deps = {}) {
   app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
   });
+
+    app.use('/bookings', createBookingsRouter(deps));
 
   return app;
 }
