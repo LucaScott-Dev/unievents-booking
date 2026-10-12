@@ -18,4 +18,8 @@ module.exports = [
       globals: { ...globals.node, ...globals.jest },
     },
   },
+  {
+    files: ['public/**/*.js'],
+    languageOptions: { sourceType: 'script', globals: { ...globals.browser } },
+  },
 ];

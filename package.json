@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "jest", 
-    "lint": "eslint ."
+    "test": "jest",
+    "lint": "eslint .",
+    "test:e2e": "playwright test"
   },
   "jest": {
+    "testPathIgnorePatterns": ["/node_modules/", "/e2e/"],
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/server.js"
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.0",
     "eslint": "^10.12.0",
     "globals": "^17.13.0",
     "jest": "^30.5.2",
