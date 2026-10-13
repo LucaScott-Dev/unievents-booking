@@ -8,8 +8,12 @@ const confirmation = document.getElementById('confirmation');
 
 async function loadEvent() {
   const res = await fetch(`/api/events/${eventId}`);
-  if (!res.ok) {
+  if (res.status === 404) {
     titleEl.textContent = 'Event not found';
+    return;
+  }
+  if (!res.ok) {
+    titleEl.textContent = 'Sorry, we could not load this event';
     return;
   }
   const event = await res.json();
@@ -19,6 +23,7 @@ async function loadEvent() {
 }
 
 async function book() {
+
   button.disabled = true;
   message.textContent = '';
 
@@ -27,7 +32,7 @@ async function book() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ eventId }),
   });
-  const body = await res.json();
+  const body = await res.json().catch(() => ({}));
 
   if (res.status === 201) {
     document.getElementById('confirmation-title').textContent = body.eventTitle;

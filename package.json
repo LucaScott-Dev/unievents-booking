@@ -13,7 +13,8 @@
     "testPathIgnorePatterns": ["/node_modules/", "/e2e/"],
     "collectCoverageFrom": [
       "src/**/*.js",
-      "!src/server.js"
+      "!src/server.js",
+      "!src/dev/**"
     ],
     "coverageThreshold": {
       "global": {
