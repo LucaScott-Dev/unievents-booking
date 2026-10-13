@@ -383,15 +383,4 @@ Known limitations:
 
 ---
 
-## 13. Roadmap
-
-| Story | Description | Depends on |
-|---|---|---|
-| US-S1-02 | Student cancels a booking (frees the place; only the owner can cancel) | FR-01 |
-| US-S4-01 | Enforce event capacity limits at event level | S2 |
-| US-S4-02 | Waiting list when an event is full | US-S1-02, S4-01 |
-| US-S5-01 | Email reminders before booked events | FR-01 |
-
----
-
-*Created for Applied Software Engineering teaching. Requirement IDs and test IDs match the Initial Assessment Portfolio template (Sections 1.2, 2.3, 4.1 and 4.2).*
+*Created for Applied Software Engineering teaching. 
