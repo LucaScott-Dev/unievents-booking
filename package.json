@@ -10,7 +10,10 @@
     "test:e2e": "playwright test"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "/e2e/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/e2e/"
+    ],
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/server.js",
@@ -25,12 +28,20 @@
       }
     }
   },
+  "overrides": {
+    "js-yaml": "^4.3.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "keywords": [],
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "helmet": "^8.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.0",
     "eslint": "^10.12.0",
