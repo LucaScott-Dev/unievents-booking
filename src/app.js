@@ -1,7 +1,6 @@
-
-// const X = require('xss'); //test esLint
 const path = require('path');
 const express = require('express');
+const helmet = require('helmet');
 const { createBookingsRouter } = require('./bookingsRouter');
 const { createEventsRouter } = require('./eventsRouter');
 
@@ -9,6 +8,20 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 
 function createApp(deps = {}) {
   const app = express();
+
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+          // Remove for local http:// use (Safari can break on localhost).
+          // Re-enable when the app is served over HTTPS.
+          'upgrade-insecure-requests': null,
+        },
+      },
+    })
+  );
+
   app.use(express.json());
   app.use(express.static(PUBLIC_DIR));
 
@@ -16,7 +29,6 @@ function createApp(deps = {}) {
     res.json({ status: 'ok' });
   });
 
-  // The booking page: event.js reads the event id from the URL
   app.get('/events/:id', (req, res) => {
     res.sendFile(path.join(PUBLIC_DIR, 'event.html'));
   });
