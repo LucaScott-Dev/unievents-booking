@@ -14,8 +14,6 @@ function createApp(deps = {}) {
       contentSecurityPolicy: {
         directives: {
           ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-          // Remove for local http:// use (Safari can break on localhost).
-          // Re-enable when the app is served over HTTPS.
           'upgrade-insecure-requests': null,
         },
       },
