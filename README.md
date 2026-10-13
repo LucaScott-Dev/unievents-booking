@@ -54,3 +54,23 @@ Test names carry the portfolio IDs (T-S1-02, 04, 06, 07, 08).
 ## RED Tests
 When a **test passes during the Red step**, ask: “What would have to be broken for this test to fail?” If the answer is “nothing”, the test is too weak.
 
+### Some Pages and API endpoints you can open in the browser
+These all work with npm start
+
+URL	What you should see
+http://localhost:3000/health	{"status":"ok"}
+http://localhost:3000/events/E1	Page for Film Society Screening, 2026-11-20, with an enabled Book a place button
+http://localhost:3000/events/E2	Page for Quiz Night (a full event). Clicking the button shows “This event is full”
+http://localhost:3000/events/E3	Page for Careers Fair (79 of 80 places). Clicking the button succeeds
+http://localhost:3000/events/E99	“Event not found” (the event doesn’t exist)
+http://localhost:3000/api/events/E1	JSON with id, title, date, status, capacity: 80, booked: 10
+http://localhost:3000/api/events/E2	JSON with booked: 80
+http://localhost:3000/api/events/E3	JSON with booked: 79
+http://localhost:3000/api/events/E99	{"error":"EVENT_NOT_FOUND"}
+http://localhost:3000/event.html	The page template with “Loading…”. Its script can’t find an event ID from this URL, so it ends in an error message
+
+## Using command line
+Terminal (macOS or Linux; on Windows PowerShell use curl.exe and escape the quotes differently):
+curl -i -X POST http://localhost:3000/bookings \
+  -H "Content-Type: application/json" \
+  -d '{"eventId":"E1"}'
