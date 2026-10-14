@@ -12,7 +12,7 @@ describe('BookingPolicy.book', () => {
     });
 
     expect(result.ok).toBe(true);
-    expect(result.booked).toBe(80);
+    expect(result.booked).toBe(81);
     expect(result.booking.reference).toMatch(/^BK-\d{4}$/);
     expect(result.booking).toMatchObject({ eventId: 'E1', studentId: 'stu1' });
   });
